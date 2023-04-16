@@ -462,12 +462,14 @@
 
 #service-item-detail-1{
     background-color: #eee;;
+    font-weight: bold;
     color:#271b33;
     box-shadow: 0 0 5px 3px #47325cd2;
     line-height: 1.5rem;
   }
   
   #service-item-detail-2{
+    font-weight: bold;
     line-height: 1.5rem;
     background-color: #eee;;
     color:#271b33;

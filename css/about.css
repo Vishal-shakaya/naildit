@@ -465,6 +465,7 @@
   color:#271b33;
   box-shadow: 0 0 5px 3px #47325cd2;
   line-height: 1.5rem;
+  font-weight: bold;
 }
 
 #service-item-detail-2{
@@ -473,8 +474,8 @@
   color:#271b33;
   box-shadow: 0 0 5px 3px #47325cd2;
   line-height: 1.8rem;
+  font-weight: bold;
 }
-
 #cust-contact-form{
   background-color: #d1c7ee;
   border-radius: 5px;
