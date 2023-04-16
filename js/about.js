@@ -18,6 +18,19 @@
     // Initiate the wowjs
     new WOW().init();
 
+   // Portfolio isotope and filter
+var portfolioIsotope = $('.portfolio-container').isotope({
+    itemSelector: '.portfolio-item',
+    layoutMode: 'fitRows'
+});
+$('#portfolio-flters li').on('click', function () {
+    $("#portfolio-flters li").removeClass('active');
+    $(this).addClass('active');
+
+    portfolioIsotope.isotope({filter: $(this).data('filter')});
+});
+
+
 
 // Typed Initiate
 if ($('.typed-text-output').length == 1) {
@@ -32,17 +45,6 @@ if ($('.typed-text-output').length == 1) {
 }
 
 
-   // Portfolio isotope and filter
-   var portfolioIsotope = $('.portfolio-container').isotope({
-    itemSelector: '.portfolio-item',
-    layoutMode: 'fitRows'
-});
-$('#portfolio-flters li').on('click', function () {
-    $("#portfolio-flters li").removeClass('active');
-    $(this).addClass('active');
-
-    portfolioIsotope.isotope({filter: $(this).data('filter')});
-});
 
 
 // Testimonials carousel
