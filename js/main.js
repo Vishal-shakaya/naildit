@@ -11,11 +11,60 @@
     };
     spinner();
     
+    $("[data-background]").each(function () {
+        $(this).css("background-image", "url(" + $(this).attr("data-background") + ")")
+        });
     
     // Initiate the wowjs
     new WOW().init();
 
 
+// Typed Initiate
+if ($('.typed-text-output').length == 1) {
+    var typed_strings = $('.typed-text').text();
+    var typed = new Typed('.typed-text-output', {
+        strings: typed_strings.split(', '),
+        typeSpeed: 100,
+        backSpeed: 20,
+        smartBackspace: false,
+        loop: true
+    });
+}
+
+
+   // Portfolio isotope and filter
+   var portfolioIsotope = $('.portfolio-container').isotope({
+    itemSelector: '.portfolio-item',
+    layoutMode: 'fitRows'
+});
+$('#portfolio-flters li').on('click', function () {
+    $("#portfolio-flters li").removeClass('active');
+    $(this).addClass('active');
+
+    portfolioIsotope.isotope({filter: $(this).data('filter')});
+});
+
+
+// Testimonials carousel
+$(".testimonial-carousel").owlCarousel({
+    autoplay: true,
+    smartSpeed: 1000,
+    items: 1,
+    dots: true,
+    loop: true,
+});
+
+    $('.set-bg').each(function () {
+        var bg = $(this).data('setbg');
+        $(this).css('background-image', 'url(' + bg + ')');
+    });
+
+    $('.work__gallery').masonry({
+        itemSelector: '.work__item',
+        columnWidth: '.grid-sizer',
+        gutter: 10
+    });
+    
     // Navbar on scrolling
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -23,6 +72,13 @@
         } else {
             $('.navbar').fadeOut('slow').css('display', 'none');
         }
+    });
+
+
+    
+    $(".mobile-menu").slicknav({
+        prependTo: '#mobile-menu-wrap',
+        allowParentLinks: true
     });
 
 
@@ -57,17 +113,7 @@
     });
     
 
-    // Typed Initiate
-    if ($('.typed-text-output').length == 1) {
-        var typed_strings = $('.typed-text').text();
-        var typed = new Typed('.typed-text-output', {
-            strings: typed_strings.split(', '),
-            typeSpeed: 100,
-            backSpeed: 20,
-            smartBackspace: false,
-            loop: true
-        });
-    }
+
 
 
     // Modal Video
@@ -99,28 +145,7 @@
     }, {offset: '80%'});
 
 
-    // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
-        $(this).addClass('active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        items: 1,
-        dots: true,
-        loop: true,
-    });
-
+ 
     
 })(jQuery);
 
